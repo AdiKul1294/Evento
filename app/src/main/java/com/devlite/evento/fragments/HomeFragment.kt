@@ -8,9 +8,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.devlite.evento.R
+import com.devlite.evento.adapters.AnnouncementsAdapter
+import com.devlite.evento.adapters.EventsAdapter
+import com.devlite.evento.data_classes.Announcement
 import com.devlite.evento.databinding.FragmentHomeBinding
+import com.devlite.evento.dataclasses.Event
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObjects
 
 class HomeFragment : Fragment() {
 
@@ -20,21 +28,29 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,R.layout.fragment_home,container,false)
+        val currUser = FirebaseAuth.getInstance().currentUser
 
+        FirebaseFirestore.getInstance().collection("announcements")         //gets the latest data and puts it in rv
+            .get().addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val announcements = it.result.toObjects<Announcement>().toMutableList()
+                    binding.rvAnnouncements.adapter = AnnouncementsAdapter(announcements)
+                    binding.rvAnnouncements.layoutManager = LinearLayoutManager(context)
+                }
+            }
 
+        if(currUser!= null) {
+            FirebaseFirestore.getInstance().collection("users").document(currUser.uid)
+                .collection("day1")         //gets the latest data and puts it in rv
+                .get().addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        var day1Schedule = it.result.toObjects<Event>().toMutableList()
+                        binding.rvAgendaNear.adapter = EventsAdapter(day1Schedule)
+                        binding.rvAgendaNear.layoutManager = LinearLayoutManager(context)
+                    }
+                }
+        }
 
-//        binding.tbHomeFrag.inflateMenu(R.menu.home_frag_menu)
-//        binding.tbHomeFrag.setOnMenuItemClickListener {
-//            when (it.itemId) {
-//                R.id.user_btn -> {
-//                    val navCont = findNavController()
-//                    navCont.navigate(R.id.loginOrSignUpFragment)
-//                    true
-//                }
-//
-//                else -> false
-//            }
-//        }
 
         return binding.root
 

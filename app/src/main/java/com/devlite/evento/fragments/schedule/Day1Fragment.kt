@@ -22,57 +22,20 @@ class Day1Fragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_day1, container, false)
 
-        val events = mutableListOf(
-            Event("Code by the Beach",
-                "LT-2",
-                "Hackathon",
-                "9:00 am",
-                false),
-            Event("Code by the Beach",
-                "LT-2",
-                "Hackathon",
-                "9:00 am",
-            false),
-            Event("Code by the Beach",
-                "LT-2",
-                "Hackathon",
-                "10:00 am",
-            false),
-            Event("Code by the Beach",
-                "LT-2",
-                "Hackathon",
-                "11:00 am",
-            false),
-            Event("Code by the Beach",
-                "LT-2",
-                "Hackathon",
-                "12:00 pm",
-            false),
-            Event("Code by the Beach",
-                "LT-2",
-                "Hackathon",
-                "1:00 pm",
-            false),
-            Event("Code by the Beach",
-                "LT-2",
-                "Hackathon",
-                "1:00 pm",
-            false)
-        )
-
-        events.add(0, Event(events[0].time, "", "", events[0].time, true))
-        var size = events.size
-
-        var i=1
-        while(i<size){
-            if(events[i].time!=events[i-1].time){
-                events.add(i, Event(events[i].time, "", "", events[i].time, true))
-                size++
-            }
-            i++
-        }
-
-        val adapter = EventsAdapter(events)
+//
+//        events.add(0, Event(events[0].time, "", "", events[0].time, true))
+//        var size = events.size
+//
+//        var i=1
+//        while(i<size){
+//            if(events[i].time!=events[i-1].time){
+//                events.add(i, Event(events[i].time, "", "", events[i].time, true))
+//                size++
+//            }
+//            i++
+//        }
+//
+//        val adapter = EventsAdapter(events)
         binding.eventsRvD1f.apply {
             this.adapter = adapter
             layoutManager = LinearLayoutManager(requireContext())
