@@ -6,20 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.devlite.evento.R
 import com.devlite.evento.dataclasses.Event
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
-class AgendaAdapter(val events: List<Event>): RecyclerView.Adapter<AgendaAdapter.EventViewHolder>() {
+class NearAgendaAdapter(val events: List<Event>): RecyclerView.Adapter<NearAgendaAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.agenda_event, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.near_agenda_event, parent, false)
         return EventViewHolder(view)
     }
 

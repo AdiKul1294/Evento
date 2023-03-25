@@ -1,10 +1,12 @@
 package com.devlite.evento.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.devlite.evento.R
 import com.devlite.evento.adapters.AnnouncementsAdapter
 import com.devlite.evento.adapters.EventsAdapter
+import com.devlite.evento.adapters.NearAgendaAdapter
 import com.devlite.evento.data_classes.Announcement
 import com.devlite.evento.databinding.FragmentHomeBinding
 import com.devlite.evento.dataclasses.Event
@@ -33,39 +36,46 @@ class HomeFragment : Fragment() {
         FirebaseFirestore.getInstance().collection("announcements")         //gets the latest data and puts it in rv
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
+
                     val announcements = it.result.toObjects<Announcement>().toMutableList()
-                    binding.rvAnnouncements.adapter = AnnouncementsAdapter(announcements)
-                    binding.rvAnnouncements.layoutManager = LinearLayoutManager(context)
+                    if( !announcements.isEmpty()) {
+                        binding.rvAnnouncements.adapter = AnnouncementsAdapter(announcements)
+                        binding.rvAnnouncements.layoutManager = LinearLayoutManager(context)
+                        Log.d("Home frag","announcement not empty")
+                    }
+                    else{
+                        announcements.add( Announcement("","","","No announcements",""))
+                        binding.rvAnnouncements.adapter = AnnouncementsAdapter(announcements)
+                        binding.rvAnnouncements.layoutManager = LinearLayoutManager(context)
+                        Log.d("Home Frag","Announcements empty")
+                    }
                 }
             }
 
         if(currUser!= null) {
+            var events = mutableListOf<Event>()
             FirebaseFirestore.getInstance().collection("users").document(currUser.uid)
-                .collection("day1")         //gets the latest data and puts it in rv
-                .get().addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        var day1Schedule = it.result.toObjects<Event>().toMutableList()
-                        binding.rvAgendaNear.adapter = EventsAdapter(day1Schedule)
-                        binding.rvAgendaNear.layoutManager = LinearLayoutManager(context)
+                .collection("agendas").document("day1").collection("day1")
+                .get().addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        val event = Event(
+                            document.get("eid").toString(),
+                            document.get("title").toString(),
+                            document.get("location").toString(),
+                            document.get("desc").toString(),
+                            document.get("time").toString(),
+                            false
+                        )
+                        events.add(event)
                     }
+                    binding.rvAgendaNear.adapter = NearAgendaAdapter(events)
+                    binding.rvAgendaNear.layoutManager = LinearLayoutManager(context)
                 }
         }
 
 
         return binding.root
 
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-
-//        val efb_login = activity?.findViewById<ExtendedFloatingActionButton>(R.id.efb_login)
-//
-//        efb_login?.setOnClickListener{
-//            val navController = findNavController()
-//            navController.navigate(R.id.btnSignUpSignUpFrag)
-//        }
-
-        super.onCreate(savedInstanceState)
     }
 
 }

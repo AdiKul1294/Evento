@@ -9,8 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devlite.evento.R
-import com.devlite.evento.adapters.AgendaAdapter
-import com.devlite.evento.adapters.EventsAdapter
+import com.devlite.evento.adapters.NearAgendaAdapter
 import com.devlite.evento.databinding.FragmentAgendaBinding
 import com.devlite.evento.dataclasses.Event
 import com.google.firebase.auth.FirebaseAuth
@@ -59,7 +58,7 @@ class AgendaFragment : Fragment() {
                         i++
                     }
 
-                    val adapter = AgendaAdapter(events)
+                    val adapter = NearAgendaAdapter(events)
                     binding.agendaRvAf.apply {
                         this.adapter = adapter
                         layoutManager = LinearLayoutManager(requireContext())

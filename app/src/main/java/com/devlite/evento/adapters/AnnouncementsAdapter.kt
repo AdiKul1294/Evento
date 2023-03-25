@@ -13,7 +13,7 @@ class AnnouncementsAdapter (val announcements: List<Announcement>): RecyclerView
     inner class AnnouncementViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnnouncementViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.event, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.announcement, parent, false)
         return AnnouncementViewHolder(view)
     }
 
