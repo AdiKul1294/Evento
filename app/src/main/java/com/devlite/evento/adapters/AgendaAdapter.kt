@@ -14,12 +14,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class EventsAdapter(val events: List<Event>): RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
+class AgendaAdapter(val events: List<Event>): RecyclerView.Adapter<AgendaAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.event, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.agenda_event, parent, false)
         return EventViewHolder(view)
     }
 
@@ -35,30 +35,10 @@ class EventsAdapter(val events: List<Event>): RecyclerView.Adapter<EventsAdapter
                 findViewById<TextView>(R.id.desc_tv).visibility = View.GONE
                 findViewById<ImageView>(R.id.loc_iv).visibility = View.GONE
                 findViewById<ImageView>(R.id.tag_iv).visibility = View.GONE
-                findViewById<FloatingActionButton>(R.id.add_fab).visibility = View.GONE
             }
             else {
                 findViewById<TextView>(R.id.loc_tv).text = events[position].location
                 findViewById<TextView>(R.id.desc_tv).text = events[position].desc
-                findViewById<FloatingActionButton>(R.id.add_fab).setOnClickListener {
-                    val fAuth = FirebaseAuth.getInstance()
-                    val fStore = FirebaseFirestore.getInstance()
-                    val userId = fAuth.currentUser!!.uid
-                    val dRef = fStore.collection("users").document(userId).collection("agendas").document("day1").collection("day1").document(events[position].eid)
-                    val event = hashMapOf<String, String>(
-                        "title" to events[position].title,
-                        "location" to events[position].location,
-                        "desc" to events[position].desc,
-                        "time" to events[position].time
-                    )
-                    dRef.set(event)
-
-                    Toast.makeText(
-                        context,
-                        "Event added to Agenda",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
             }
         }
     }
