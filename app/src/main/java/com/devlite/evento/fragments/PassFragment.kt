@@ -20,7 +20,7 @@ class PassFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pass, container, false)
 
         binding.titleTvPf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_in))
-        binding.eventsTvPf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_in));
+        binding.eventsTvPf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_in))
 
         return binding.root
     }
