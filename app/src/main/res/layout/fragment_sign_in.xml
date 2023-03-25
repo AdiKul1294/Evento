@@ -10,19 +10,32 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.SignInFragment"
-        android:padding="10dp">
+        tools:context=".fragments.SignInFragment">
 
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@mipmap/background" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
+            app:cardBackgroundColor="#00FFFFFF"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,10 +47,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="24dp"
+                    android:fontFamily="@font/allerta_stencil"
                     android:text="Welcome Back!"
                     android:textAlignment="center"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -45,8 +60,8 @@
                     android:layout_margin="10dp"
                     android:text="Please enter your email and password to continue"
                     android:textAlignment="center"
+                    android:textColor="#FFFFFF"
                     android:textSize="18sp" />
-
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -54,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    app:helperText="Enter your email"
+                    app:boxBackgroundColor="#FFFFFF"
                     app:startIconDrawable="@drawable/ic_email">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -70,6 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
+                    app:boxBackgroundColor="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
@@ -87,8 +103,10 @@
                     android:id="@+id/btn_sign_in_sign_in"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:text="Sign in"
-                    android:layout_margin="8dp"/>
+                    android:backgroundTint="@color/cardview_light_background"
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
 
