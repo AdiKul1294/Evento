@@ -24,5 +24,12 @@
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_info" />
+
+        <item
+            android:id="@+id/nav_graph_login"
+            android:title="Your Account"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            />
+
     </group>
 </menu>
