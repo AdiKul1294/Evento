@@ -56,4 +56,8 @@
             app:destination="@id/nav_home" />
 
     </navigation>
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.devlite.evento.fragments.MapFragment"
+        android:label="MapFragment" />
 </navigation>
