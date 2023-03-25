@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_agenda"
-        android:name="com.devlite.evento.fragments.AgendaFragment"
+        android:name="com.devlite.evento.fragments.agenda.AgendaFragment"
         android:label="@string/menu_agenda"
         tools:layout="@layout/fragment_agenda" />
     <fragment

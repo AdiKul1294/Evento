@@ -1,4 +1,4 @@
-package com.devlite.evento.dataclasses
+package com.devlite.evento.data_classes
 
 data class Event(
     val eid: String="",

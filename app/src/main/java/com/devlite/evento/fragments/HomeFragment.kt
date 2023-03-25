@@ -12,7 +12,7 @@ import com.devlite.evento.R
 import com.devlite.evento.adapters.AnnouncementsAdapter
 import com.devlite.evento.data_classes.Announcement
 import com.devlite.evento.databinding.FragmentHomeBinding
-import com.devlite.evento.dataclasses.Event
+import com.devlite.evento.data_classes.Event
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObjects

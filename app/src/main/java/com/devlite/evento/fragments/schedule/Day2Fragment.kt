@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.devlite.evento.R
 import com.devlite.evento.adapters.EventsAdapter
 import com.devlite.evento.databinding.FragmentDay2Binding
-import com.devlite.evento.dataclasses.Event
+import com.devlite.evento.data_classes.Event
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Day2Fragment : Fragment() {
