@@ -6,16 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devlite.evento.R
 import com.devlite.evento.adapters.AnnouncementsAdapter
 import com.devlite.evento.adapters.EventsAdapter
 import com.devlite.evento.data_classes.Announcement
 import com.devlite.evento.databinding.FragmentHomeBinding
-import com.devlite.evento.dataclasses.Event
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.devlite.evento.data_classes.Event
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObjects
