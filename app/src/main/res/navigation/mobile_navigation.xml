@@ -30,4 +30,35 @@
         android:name="com.devlite.evento.fragments.InfoFragment"
         android:label="@string/menu_info"
         tools:layout="@layout/fragment_info" />
+    <navigation
+        android:id="@+id/nav_graph_login"
+        app:startDestination="@id/nav_login_log_out">
+        <fragment
+            android:id="@+id/nav_login_log_out"
+            android:name="com.devlite.evento.fragments.LoginOrSignUpFragment"
+            android:label="LoginOrSignUpFragment">
+            <action
+                android:id="@+id/action_loginOrSignUpFragment_to_signUpFragment"
+                app:destination="@id/signUpFragment" />
+            <action
+                android:id="@+id/action_nav_login_log_out_to_signInFragment"
+                app:destination="@id/signInFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/signInFragment"
+            android:name="com.devlite.evento.fragments.SignInFragment"
+            android:label="SignInFragment" />
+        <fragment
+            android:id="@+id/signUpFragment"
+            android:name="com.devlite.evento.fragments.SignUpFragment"
+            android:label="SignUpFragment" />
+        <action
+            android:id="@+id/action_global_nav_pass"
+            app:destination="@id/nav_pass"
+             />
+        <action
+            android:id="@+id/action_global_nav_graph_home"
+            app:destination="@id/nav_home" />
+
+    </navigation>
 </navigation>
