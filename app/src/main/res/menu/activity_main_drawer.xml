@@ -20,10 +20,6 @@
             android:id="@+id/nav_pass"
             android:icon="@drawable/icon_pass"
             android:title="@string/menu_pass" />
-        <item
-            android:id="@+id/nav_info"
-            android:icon="@drawable/icon_info"
-            android:title="@string/menu_info" />
 
         <item
             android:id="@+id/nav_graph_login"

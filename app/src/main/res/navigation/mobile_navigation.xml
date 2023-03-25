@@ -25,11 +25,6 @@
         android:name="com.devlite.evento.fragments.PassFragment"
         android:label="@string/menu_pass"
         tools:layout="@layout/fragment_pass" />
-    <fragment
-        android:id="@+id/nav_info"
-        android:name="com.devlite.evento.fragments.InfoFragment"
-        android:label="@string/menu_info"
-        tools:layout="@layout/fragment_info" />
     <navigation
         android:id="@+id/nav_graph_login"
         app:startDestination="@id/nav_login_log_out">

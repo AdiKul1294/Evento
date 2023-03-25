@@ -16,6 +16,7 @@ import com.devlite.evento.data_classes.Event
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObjects
+import com.devlite.evento.adapters.NearAgendaAdapter
 
 class HomeFragment : Fragment() {
 
