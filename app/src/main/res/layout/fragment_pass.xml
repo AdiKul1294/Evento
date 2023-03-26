@@ -105,6 +105,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:text="Log out"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#000000"
+                app:iconTint="#000000"
                 app:icon="@drawable/ic_baseline_logout_24"
                 app:layout_constraintTop_toBottomOf="@+id/iv_accnt" />
 
