@@ -1,6 +1,7 @@
 package com.devlite.evento.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,9 +21,11 @@ class LoginOrSignUpFragment : Fragment() {
 
         val binding = DataBindingUtil.inflate<FragmentLoginOrSignUpBinding>(inflater,R.layout.fragment_login_or_sign_up,container,false)
 
-        if( FirebaseAuth.getInstance().currentUser?.uid != null){
-            view?.let {
-                Navigation.findNavController(it).navigate(R.id.action_global_nav_pass)
+        if( FirebaseAuth.getInstance().currentUser?.uid != null) {
+            Log.d("Auth", "User already logged in")
+            view?.let { it1 ->
+                Navigation.findNavController(it1).navigate(R.id.action_global_nav_pass)
+                Log.d("Auth","Navigated to nav_pass")
             }
         }
 
@@ -36,5 +39,18 @@ class LoginOrSignUpFragment : Fragment() {
         }
         return binding.root
     }
+
+    override fun onStart() {
+        if( FirebaseAuth.getInstance().currentUser?.uid != null) {
+            Log.d("Auth", "User already logged in")
+            view?.let { it1 ->
+                Navigation.findNavController(it1).navigate(R.id.action_global_nav_pass)
+                Log.d("Auth","Navigated to nav_pass")
+            }
+        }
+        super.onStart()
+    }
+
+
 
 }

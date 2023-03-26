@@ -19,12 +19,12 @@
     <string name="requesting_patience">Loading</string>
 
     <string name="bulleted_list"><big>Events: </big>\n
-        \n <li>All 3 Night Passes</li>\n
-        \n <li>Robowars &amp; Robosumo</li>\n
-        \n <li>Lazer Tag</li>\n
-        \n <li>Lazer Maze</li>\n
-        \n <li>Silent Disco</li>\n
-        \n <li>Escape Room</li>\n
+        \n <li>All 3 Night Passes</li>
+        \n <li>Robowars &amp; Robosumo</li>
+        \n <li>Lazer Tag</li>
+        \n <li>Lazer Maze</li>
+        \n <li>Silent Disco</li>
+        \n <li>Escape Room</li>
         \n <li>Quark National Quiz</li>
     </string>
 </resources>

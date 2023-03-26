@@ -85,7 +85,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 app:boxBackgroundColor="#FFFFFF"
-                app:helperText="Enter your BITSian email"
                 app:helperTextTextColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +105,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 app:boxBackgroundColor="#FFFFFF"
-                app:helperText="Password must be alpha-numeric"
                 app:helperTextTextColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.2"
@@ -138,7 +136,7 @@
                     android:id="@+id/tietCollegeName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Random Institue Of Technology ..."
+                    android:hint="College"
                     android:inputType="textPostalAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -157,7 +155,7 @@
                     android:id="@+id/tietCollegePlace"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Randomabad ..."
+                    android:hint="Place"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 

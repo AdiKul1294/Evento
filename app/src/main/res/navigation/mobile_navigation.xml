@@ -31,7 +31,7 @@
         <fragment
             android:id="@+id/nav_login_log_out"
             android:name="com.devlite.evento.fragments.LoginOrSignUpFragment"
-            android:label="LoginOrSignUpFragment">
+            android:label="Log In or Sign Up">
             <action
                 android:id="@+id/action_loginOrSignUpFragment_to_signUpFragment"
                 app:destination="@id/signUpFragment" />
@@ -42,11 +42,11 @@
         <fragment
             android:id="@+id/signInFragment"
             android:name="com.devlite.evento.fragments.SignInFragment"
-            android:label="SignInFragment" />
+            android:label="Log In" />
         <fragment
             android:id="@+id/signUpFragment"
             android:name="com.devlite.evento.fragments.SignUpFragment"
-            android:label="SignUpFragment" />
+            android:label="Sign Up" />
         <action
             android:id="@+id/action_global_nav_pass"
             app:destination="@id/nav_pass"
